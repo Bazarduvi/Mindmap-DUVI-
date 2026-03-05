@@ -2,13 +2,14 @@
 //  MINDMAP DUVI OS · Service Worker v2.0
 // ══════════════════════════════════════
 
-const CACHE_NAME = 'mindmap-duvi-os-v2';
+const CACHE_NAME = 'mindmap-duvi-os-v2.0';
 const OFFLINE_URL = './index.html';
 
 const ASSETS_TO_CACHE = [
   './index.html',
   './manifest.json',
-  './icon.png',
+'./icon-192.png',
+'./icon-512.png',
   'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap',
   'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js'
 ];
