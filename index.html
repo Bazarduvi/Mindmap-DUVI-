@@ -183,8 +183,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
 .hint-text span{color:var(--accent);display:block;margin-top:2px}
 
 /* ── INVISUAL PRO (Canvas) ── */
-#canvas-view{position:absolute;inset:0;display:flex;flex-direction:column;animation:fadeIn .3s ease}
-.canvas-topbar{height:60px;background:rgba(0,0,0,.95);border-bottom:1px solid var(--border);
+#canvas{position:absolute;inset:0;display:flex;flex-direction:column;animation:fadeIn .3s ease}
+  .canvas-topbar{height:60px;background:rgba(0,0,0,.95);border-bottom:1px solid var(--border);
   display:flex;align-items:center;justify-content:space-between;padding:0 20px;
   flex-shrink:0;backdrop-filter:blur(20px)}
 .canvas-actions{display:flex;align-items:center;gap:8px}
@@ -1322,9 +1322,7 @@ function saveApiKey() {
 function updateApiUI() {
   const dot = document.getElementById('settings-api-dot');
   const txt = document.getElementById('settings-api-txt');
-  const status = document.getElementById('api-keys-status');
-  const has = Object.keys(apiKeys).length > 0;
-  if(dot) dot.className = 'api-dot '+(has?'':'off');
+  const status = 77 = 'api-dot '+(has?'':'off');
   if(txt) txt.textContent = has ? Object.keys(apiKeys).join(', ').toUpperCase()+' · Conectada ✓' : 'Sin API Key — modo sin IA activo';
   if(status) status.innerHTML = has ?
     Object.keys(apiKeys).map(k=>`<div style="color:#22c55e">✅ ${k.toUpperCase()} · Configurada</div>`).join('') :
@@ -1436,7 +1434,11 @@ function addConcMsg(role, text, suggestions, mermaidCode) {
       currentCode = cleanMermaidCode(mermaidCode);
       document.getElementById('code-textarea').value = currentCode;
       setView('canvas');
-      setTimeout(() => renderMermaid(currentCode, 'mermaid-output'), 100);
+const waitAndRender = () => {
+  if(mermaidReady) { renderMermaid(currentCode, 'mermaid-output'); }
+  else { setTimeout(waitAndRender, 80); }
+};
+setTimeout(waitAndRender, 100);
       toggleConcierge();
       ntf('✦ Mapa cargado en Invisual Pro');
     };
