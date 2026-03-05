@@ -1,0 +1,33 @@
+{
+  "name": "MindMap Duvi OS",
+  "short_name": "DuviMind",
+  "description": "Studio IA de Mapas Mentales — Pack Duvi v2.0",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "lang": "es",
+  "categories": ["productivity", "utilities", "education"],
+  "icons": [
+    { "src": "icon.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Editgen Pro",
+      "short_name": "Editor IA",
+      "description": "Genera un mapa mental con IA",
+      "url": "./index.html#editor",
+      "icons": [{ "src": "icon.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Blueprints",
+      "short_name": "Plantillas",
+      "description": "30 plantillas profesionales",
+      "url": "./index.html#templates",
+      "icons": [{ "src": "icon.png", "sizes": "192x192" }]
+    }
+  ]
+}
